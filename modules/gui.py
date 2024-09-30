@@ -406,7 +406,7 @@ def display_optional_parameters(datamanager):
             options=["Include all parcels in the sample extraction", 
                      "Prioritize parcels covered by VHR images (beta)", "Include only parcels covered by VHR images"],
             value="Include all parcels in the sample extraction",
-            description="VHR image coverage options:",
+            description="",
             style={"description_width": "initial"}
         )
         image_coverage_radiobuttons.observe(lambda change: image_coverage_widget_on_value_change(change, datamanager), names='value')
@@ -415,7 +415,7 @@ def display_optional_parameters(datamanager):
             options=["Filter out when a bucket is filled", 
                      "Retain when a bucket is filled"],
             value="Filter out when a bucket is filled",
-            description="Non-contributing, highest-ranked parcel of a holding:",
+            description="",
             style={"description_width": "initial"}
         )
         consider_noncontributing_radiobuttons.observe(lambda change: noncontributing_widget_on_value_change(change, datamanager), names='value')
