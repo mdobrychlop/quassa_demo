@@ -11,6 +11,21 @@ from modules.input_verification import verify_target_df, compare_bucket_lists, v
 
 display(HTML(define_infobutton_style()))
 
+style_html = """
+<style>
+    .info-button-style {
+        border-radius: 50%;  /* Makes the button circular */
+    }
+    .info-button-style:hover {
+        box-shadow: none !important;  /* Removes shadow on hover */
+        transform: none !important;  /* Stops any popping or scaling */
+        cursor: default;  /* Removes the hand cursor */
+    }
+</style>
+"""
+
+HTML(style_html)
+
 def target_widgets_on_value_change(change, datamanager): # controls gui behavior - stays in gui.py
     datamanager.target_values_state = f"(Target values were manually modified. Last change: {change['owner'].description} field changed to {change['new']}.)"
     datamanager.target_source_label.value = datamanager.target_values_state
@@ -426,8 +441,8 @@ def display_optional_parameters(datamanager):
 
         hbox_prefix = widgets.HBox([extraction_id_entry, extraction_id_infobutton], layout=widgets.Layout(padding="10px"))
         hbox1 = widgets.HBox([holding_percentage_active], layout=widgets.Layout(padding="0px"))
-        hbox2 = widgets.HBox([image_coverage_title_label, image_coverage_radiobuttons], layout=widgets.Layout(padding="12px"))
-        hbox3 = widgets.HBox([consider_noncontributing_title_label, consider_noncontributing_radiobuttons], layout=widgets.Layout(padding="12px"))
+        hbox2 = widgets.VBox([image_coverage_title_label, image_coverage_radiobuttons], layout=widgets.Layout(padding="12px"))
+        hbox3 = widgets.VBox([consider_noncontributing_title_label, consider_noncontributing_radiobuttons], layout=widgets.Layout(padding="12px"))
         vbox = widgets.VBox([hbox_prefix, hbox1, hbox2, hbox3], layout=widgets.Layout(padding="10px"))
         #vbox = widgets.VBox([hbox1, hbox2], layout=widgets.Layout(padding="10px"))
         display(vbox)
