@@ -92,7 +92,8 @@ def create_info_button(tooltip, css_class="info-button-style"):
     ipywidgets.Button: Styled button with an information icon.
     """
     button = widgets.Button(
-        icon="info",
+        #icon="info",
+        description="i",
         layout=widgets.Layout(width="30px"),
         button_style='',
         tooltip=tooltip
